@@ -1,0 +1,19 @@
+default:
+  - prod
+depadd:
+  - wiredep
+img:
+  - 'concurrent:imgFirst'
+prod:
+  - 'concurrent:prodFirst'
+  - 'concurrent:prodSecond'
+  - img
+final:
+  - 'clean:final'
+  - 'concurrent:final_1'
+  - 'copy:final_index'
+  - 'injector:final'
+serve:
+  - 'connect'
+  - 'open:server'
+  - 'watch:live'
